@@ -75,10 +75,10 @@ void MainWindow::saveGame()
     if(!file.open(QIODevice::WriteOnly | QIODevice::Truncate))
         return;
     QString s = QString::number(game->cellNumber())+"\n";
-    file.write(s.toAscii());
-    file.write(game->dump().toAscii());
+    file.write(s.toLocal8Bit());
+    file.write(game->dump().toLocal8Bit());
     QString buf = QString::number(ui->iterInterval->value())+"\n";
-    file.write(buf.toAscii());
+    file.write(buf.toLocal8Bit());
     file.close();
 }
 

@@ -2,7 +2,7 @@
 #define GAMEWIDGET_H
 
 #include <QColor>
-#include <QWidget>
+#include <QtWidgets/QWidget>
 #include "cell.h"
 
 class GameWidget : public QWidget
