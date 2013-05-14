@@ -11,4 +11,4 @@
 *.la
 *.a
 
-*.user
+*.pro.user

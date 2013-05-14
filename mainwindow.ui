@@ -102,10 +102,10 @@
           <string> ms</string>
          </property>
          <property name="minimum">
-          <number>50</number>
+          <number>20</number>
          </property>
          <property name="maximum">
-          <number>2000</number>
+          <number>1000</number>
          </property>
          <property name="singleStep">
           <number>10</number>
@@ -118,10 +118,10 @@
        <item>
         <widget class="QSlider" name="iterSlider">
          <property name="minimum">
-          <number>50</number>
+          <number>20</number>
          </property>
          <property name="maximum">
-          <number>2000</number>
+          <number>1000</number>
          </property>
          <property name="singleStep">
           <number>10</number>
@@ -131,6 +131,51 @@
          </property>
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="redLimitLabel">
+         <property name="text">
+          <string>Red Hungry Limit (turns to die)</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="redLimitSpin">
+         <property name="minimum">
+          <number>1</number>
+         </property>
+         <property name="maximum">
+          <number>200</number>
+         </property>
+         <property name="value">
+          <number>20</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSlider" name="redLimitSlider">
+         <property name="minimum">
+          <number>1</number>
+         </property>
+         <property name="maximum">
+          <number>200</number>
+         </property>
+         <property name="value">
+          <number>20</number>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="invertedAppearance">
+          <bool>false</bool>
+         </property>
+         <property name="invertedControls">
+          <bool>false</bool>
+         </property>
+         <property name="tickPosition">
+          <enum>QSlider::NoTicks</enum>
          </property>
         </widget>
        </item>

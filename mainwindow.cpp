@@ -38,6 +38,10 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->iterInterval, SIGNAL(valueChanged(int)), ui->iterSlider, SLOT(setValue(int)));
     connect(ui->iterSlider, SIGNAL(valueChanged(int)), ui->iterInterval, SLOT(setValue(int)));
 
+    connect(ui->redLimitSpin, SIGNAL(valueChanged(int)), ui->redLimitSlider, SLOT(setValue(int)));
+    connect(ui->redLimitSlider, SIGNAL(valueChanged(int)), ui->redLimitSpin, SLOT(setValue(int)));
+    connect(ui->redLimitSpin, SIGNAL(valueChanged(int)), this, SLOT(setRedLimit(int)));
+
     QPalette plt;
 
     plt.setColor(QPalette::WindowText, Qt::gray);
@@ -56,6 +60,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->mainLayout->setStretchFactor(ui->setLayout, 1);
     ui->gameLayout->addWidget(game);
 
+    ui->redLimitSlider->setValue(20);
 }
 
 MainWindow::~MainWindow()
@@ -120,6 +125,10 @@ void MainWindow::updateStats()
     ui->stGreen->setNum(game->stGreenCount);
     ui->stRed->setNum(game->stRedCount);
     stTimer->setInterval(game->interval());
+}
+
+void MainWindow::setRedLimit(int limit) {
+    game->redLimit = limit;
 }
 
 void MainWindow::startResume()

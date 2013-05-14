@@ -44,6 +44,9 @@ public:
     QLabel *label2;
     QSpinBox *iterInterval;
     QSlider *iterSlider;
+    QLabel *redLimitLabel;
+    QSpinBox *redLimitSpin;
+    QSlider *redLimitSlider;
     QHBoxLayout *fileLayout;
     QPushButton *loadButton;
     QPushButton *saveButton;
@@ -133,8 +136,8 @@ public:
 
         iterInterval = new QSpinBox(layoutWidget);
         iterInterval->setObjectName(QStringLiteral("iterInterval"));
-        iterInterval->setMinimum(50);
-        iterInterval->setMaximum(2000);
+        iterInterval->setMinimum(20);
+        iterInterval->setMaximum(1000);
         iterInterval->setSingleStep(10);
         iterInterval->setValue(100);
 
@@ -142,13 +145,38 @@ public:
 
         iterSlider = new QSlider(layoutWidget);
         iterSlider->setObjectName(QStringLiteral("iterSlider"));
-        iterSlider->setMinimum(50);
-        iterSlider->setMaximum(2000);
+        iterSlider->setMinimum(20);
+        iterSlider->setMaximum(1000);
         iterSlider->setSingleStep(10);
         iterSlider->setSliderPosition(100);
         iterSlider->setOrientation(Qt::Horizontal);
 
         setLayout->addWidget(iterSlider);
+
+        redLimitLabel = new QLabel(layoutWidget);
+        redLimitLabel->setObjectName(QStringLiteral("redLimitLabel"));
+
+        setLayout->addWidget(redLimitLabel);
+
+        redLimitSpin = new QSpinBox(layoutWidget);
+        redLimitSpin->setObjectName(QStringLiteral("redLimitSpin"));
+        redLimitSpin->setMinimum(1);
+        redLimitSpin->setMaximum(200);
+        redLimitSpin->setValue(20);
+
+        setLayout->addWidget(redLimitSpin);
+
+        redLimitSlider = new QSlider(layoutWidget);
+        redLimitSlider->setObjectName(QStringLiteral("redLimitSlider"));
+        redLimitSlider->setMinimum(1);
+        redLimitSlider->setMaximum(200);
+        redLimitSlider->setValue(20);
+        redLimitSlider->setOrientation(Qt::Horizontal);
+        redLimitSlider->setInvertedAppearance(false);
+        redLimitSlider->setInvertedControls(false);
+        redLimitSlider->setTickPosition(QSlider::NoTicks);
+
+        setLayout->addWidget(redLimitSlider);
 
         fileLayout = new QHBoxLayout();
         fileLayout->setSpacing(6);
@@ -266,6 +294,7 @@ public:
         cellsControl->setSuffix(QApplication::translate("MainWindow", " cells", 0));
         label2->setText(QApplication::translate("MainWindow", "Generation interval (in msec)", 0));
         iterInterval->setSuffix(QApplication::translate("MainWindow", " ms", 0));
+        redLimitLabel->setText(QApplication::translate("MainWindow", "Red Hungry Limit (turns to die)", 0));
         loadButton->setText(QApplication::translate("MainWindow", "Load", 0));
         saveButton->setText(QApplication::translate("MainWindow", "Save", 0));
         labelsBox->setTitle(QApplication::translate("MainWindow", "Color", 0));

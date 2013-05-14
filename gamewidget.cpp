@@ -20,6 +20,7 @@ GameWidget::GameWidget(QWidget *parent) :
     stGreenCount = 0;
     stRedCount = 0;
     gen = 0;
+    redLimit = 20;
     paused = true;
     timer->setInterval(100);
     connect(timer, SIGNAL(timeout()), this, SLOT(newGeneration()));
@@ -246,7 +247,7 @@ void GameWidget::redAlertAndHungry()
     for (int k=1; k <= universeSize; k++){
         for (int j=1; j <universeSize; j++){
             if(next[k][j].type == 2 ){
-                if (next[k][j].numTurn >= 20) {
+                if (next[k][j].numTurn >= redLimit) {
                     next[k][j].clear();
                 } else {
                     int tmp = next[k][j].numTurn;

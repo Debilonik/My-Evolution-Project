@@ -15,14 +15,16 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = 0);
+    Ui::MainWindow *ui;
     ~MainWindow();
 
 public slots:
     void saveGame();
     void loadGame();
+    void setRedLimit(int limit);
 
 private:
-    Ui::MainWindow *ui;
+
     QTimer* stTimer;
     GameWidget* game;
     void keyPressEvent(QKeyEvent *e);

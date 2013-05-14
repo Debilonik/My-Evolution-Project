@@ -21,6 +21,7 @@ public:
     int stRedCount;
     int stRedCountNow;
     //stats
+    int redLimit;
     bool paused;
 
 protected:
